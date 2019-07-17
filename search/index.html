@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="John Doe">
+    <meta name="author" content="DragonDreamYF">
     
     
     
@@ -57,6 +57,24 @@
     </ul>
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://dragondreamyf.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
     
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
@@ -117,6 +135,10 @@
                             <a href="/categories/学习/">学习</a>
                         </li>
                         
+                        <li>
+                            <a href="/categories/C/">C++</a>
+                        </li>
+                        
                         
                         
                     </ul>
@@ -137,6 +159,10 @@
                         
                         <li>
                             <a href="/tags/学习/">学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/树状数组/">树状数组</a>
                         </li>
                         
                         
@@ -194,7 +220,7 @@
     // 获取每页的页码数
     var pageSize = '10'
     var useLeancloud = ''
-    var useComment = ('false' === 'true')
+    var useComment = ('flase' === 'true')
     $.getJSON('/content.json', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -218,7 +244,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview4.jpg'
+        var defaultPreview = '/imgs/preview/preview2.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -390,7 +416,7 @@
     <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
         <div class="panel-heading" style="text-align: center">
             <i class="fa fa-quote-left"></i>
-            John Doe
+            DragonDreamYF
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
@@ -428,6 +454,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/07/17/树状数组的学习/">树状数组的学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/07/17/xingaoyishujiaxuexibijiDAY1/">新高一暑假学习笔记DAY1</a>
                 </span>
             </li>
@@ -451,6 +483,12 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/07/17/xingaoyishujiaxuexibijiDAY1/">新高一暑假学习笔记DAY1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/17/树状数组的学习/">树状数组的学习</a>
                 </span>
             </li>
             
@@ -483,7 +521,9 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/学习/" style="font-size: 16.97803674394733px;" class="tag-cloud-link">学习</a>
+    <a href="/tags/学习/" style="font-size: 17.090664779419118px;" class="tag-cloud-link">学习</a>
+    
+    <a href="/tags/树状数组/" style="font-size: 14.473377708307828px;" class="tag-cloud-link">树状数组</a>
     
 </div>
                 
@@ -531,7 +571,7 @@
     </div>
     <footer id="gal-footer">
     <div class="container">
-        Copyright © 2018 John Doe Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+        Copyright © 2018 DragonDreamYF Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
     </div>
 </footer>
 
@@ -589,6 +629,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

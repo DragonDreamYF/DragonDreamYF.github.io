@@ -10,7 +10,7 @@
     
     
     
-    <title>archive_a | Hexo</title>
+    <title>树状数组的学习 | Hexo</title>
     <link href="”https://dragondreamyf.github.io“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -113,7 +113,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -188,19 +188,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://dragondreamyf.github.io">Hexo</a>
         >
-        <span>归档</span>
+        <span>树状数组的学习</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2019/07/17/树状数组的学习/">树状数组的学习</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/树状数组/">树状数组</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-07-17
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -208,31 +223,89 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2019/07/17/树状数组的学习/">树状数组的学习</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-07-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/树状数组/">树状数组</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2019/07/17/树状数组的学习/">树状数组的学习</a>
-                        <br>
-            
-             
-                        <a href="/2019/07/17/xingaoyishujiaxuexibijiDAY1/">新高一暑假学习笔记DAY1</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <h1 id="树状数组的学习"><a href="#树状数组的学习" class="headerlink" title="树状数组的学习"></a>树状数组的学习</h1><p><del>当然作为蒟蒻的我也仅仅是才开始学习QAQ</del></p>
+<p>咳咳，下面进入正文qwq：</p>
+<p>当然，在进行树状数组的运用之前，要先了解一下何为树状数组。</p>
+<h2 id="树状数组是什么？"><a href="#树状数组是什么？" class="headerlink" title="树状数组是什么？"></a>树状数组是什么？</h2><p>数组如其名，它就是一个树状的数组（类似于二叉树<del>好吧就是</del>）</p>
+<p>对于 a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8].</p>
+<p>我们定义</p>
+<pre><code>c[1] = a[1]
+
+c[2] = a[1] + a[2]
+
+c[3] = a[3]
+
+c[4] = a[1] + a[2] + a[3] + a[4]
+
+c[5] = a[5]
+
+c[6] = a[5] + a[6]
+
+c[7] = a[7]
+
+c[8] = a[1] + a[2] + a[3] + a[4] + a[5] + a[6] + a[7] + a[8]</code></pre><p><del>此处不贴图我感觉反而方便理解</del></p>
+<p>于是，我们大胆地将其转换成二进制ヾ(≧▽≦)o</p>
+<pre><code>c[1] = c[0001] = a[1]
+
+c[2] = c[0010] = a[1] + a[2]
+
+c[3] = c[0011] = a[3]
+
+c[4] = c[0100] = a[1] + a[2] + a[3] + a[4]
+
+c[5] = c[0101] = a[5]
+
+c[6] = c[0110] = a[5] + a[6]
+
+c[7] = c[0111] = a[7]
+
+c[8] = c[1000] = a[1] + a[2] + a[3] + a[4] + a[5] + a[6] + a[7] + a[8]
+
+c[i] = a[i - 2 ^ k + 1] + a[i - 2 ^ k + 2] + …… +a[i]</code></pre><p><strong><em>k 为 i 的二进制中从最低位到第一个高位 “1” 的连续零的长度</em></strong></p>
+<p>   i = 8 (1000) 时 k = 3</p>
+<p>我们知道,对于一个数的负数就等于对这个数取反+1</p>
+<p>以二进制数11010为例:11010的补码为00101,加1后为00110,两者相与便是最低位的1</p>
+<p>其实很好理解,补码和原码必然相反,所以原码有0的部位补码全是1,补码再+1之后由于进位那么最末尾的1和原码</p>
+<p>最右边的1一定是同一个位置(当遇到第一个1的时候补码此位为0,由于前面会进一位,所以此位会变为1)</p>
+<p>所以我们只需要进行a&amp;(-a)就可以取出最低位的1了</p>
+<p>于是</p>
+<pre><code>1. lowbit (int x) { return x &amp; (-x) ; }</code></pre><hr>
+<p><strong>单点修改</strong></p>
+<p>因为这是一个树状的数组，所以在对 a[i] 进行更新时，必定会同步更新 c 数组</p>
+<p>1(001)        c[1] += a[1]</p>
+<p>lowbit (1)= 001 = 1 + lowbit(1) = 2(010)     c[2] += a[1]</p>
+<p>lowbit (2)= 010 = 2 + lowbit(2) = 4(100)     c[4] += a[1]</p>
+<p>lowbit (4)= 100 = 4 + lowbit(4) = 8(1000)    c[8] += a[1]</p>
+<pre><code>1. void update (int x, int y) {
+2.     for (int i = x; i &lt;= n; i += lowbit (i)) {
+3.         c[i] += y ;
+4.     }
+5. }</code></pre><hr>
+<p><strong>区间查询</strong></p>
+<hr>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -338,17 +411,17 @@
 
                 
                 <li>
-                    <a href="/archives/2019/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/07/17/树状数组的学习/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/07/17/树状数组的学习/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/07/17/树状数组的学习/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -356,9 +429,9 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/学习/" style="font-size: 11.874767665682825px;" class="tag-cloud-link">学习</a>
+    <a href="/tags/学习/" style="font-size: 12.784545336001937px;" class="tag-cloud-link">学习</a>
     
-    <a href="/tags/树状数组/" style="font-size: 15.303135785572492px;" class="tag-cloud-link">树状数组</a>
+    <a href="/tags/树状数组/" style="font-size: 15.516164753737705px;" class="tag-cloud-link">树状数组</a>
     
 </div>
                 
