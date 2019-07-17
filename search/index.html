@@ -104,10 +104,22 @@
                 
                 
                 
-                <li class="">
-                    <a href="/categories">
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-list"></i>分类
                     </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/学习/">学习</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
                 </li>
                 
                 
@@ -206,7 +218,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview3.jpg'
+        var defaultPreview = '/imgs/preview/preview4.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -471,7 +483,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/学习/" style="font-size: 17.07560062839936px;" class="tag-cloud-link">学习</a>
+    <a href="/tags/学习/" style="font-size: 16.97803674394733px;" class="tag-cloud-link">学习</a>
     
 </div>
                 
