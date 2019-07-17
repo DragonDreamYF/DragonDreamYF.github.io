@@ -287,18 +287,21 @@ c[i] = a[i - 2 ^ k + 1] + a[i - 2 ^ k + 2] + …… +a[i]</code></pre><p><strong
 <p>最右边的1一定是同一个位置(当遇到第一个1的时候补码此位为0,由于前面会进一位,所以此位会变为1)</p>
 <p>所以我们只需要进行a&amp;(-a)就可以取出最低位的1了</p>
 <p>于是</p>
-<pre><code>1. lowbit (int x) { return x &amp; (-x) ; }</code></pre><hr>
+<pre><code>`lowbit (int x) { return x &amp; (-x) ; }`</code></pre><hr>
 <p><strong>单点修改</strong></p>
 <p>因为这是一个树状的数组，所以在对 a[i] 进行更新时，必定会同步更新 c 数组</p>
 <p>1(001)        c[1] += a[1]</p>
 <p>lowbit (1)= 001 = 1 + lowbit(1) = 2(010)     c[2] += a[1]</p>
 <p>lowbit (2)= 010 = 2 + lowbit(2) = 4(100)     c[4] += a[1]</p>
 <p>lowbit (4)= 100 = 4 + lowbit(4) = 8(1000)    c[8] += a[1]</p>
-<pre><code>1. void update (int x, int y) {
-2.     for (int i = x; i &lt;= n; i += lowbit (i)) {
-3.         c[i] += y ;
-4.     }
-5. }</code></pre><hr>
+<p>(<code>)
+    void update (int x, int y) {
+        for (int i = x; i &lt;= n; i += lowbit (i)) {
+            c[i] += y ;
+        }
+    }
+(</code>)</p>
+<hr>
 <p><strong>区间查询</strong></p>
 <hr>
 
@@ -429,9 +432,9 @@ c[i] = a[i - 2 ^ k + 1] + a[i - 2 ^ k + 2] + …… +a[i]</code></pre><p><strong
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/学习/" style="font-size: 12.784545336001937px;" class="tag-cloud-link">学习</a>
+    <a href="/tags/学习/" style="font-size: 18.67399901152681px;" class="tag-cloud-link">学习</a>
     
-    <a href="/tags/树状数组/" style="font-size: 15.516164753737705px;" class="tag-cloud-link">树状数组</a>
+    <a href="/tags/树状数组/" style="font-size: 12.977935718038927px;" class="tag-cloud-link">树状数组</a>
     
 </div>
                 
