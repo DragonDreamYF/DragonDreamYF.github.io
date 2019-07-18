@@ -18,7 +18,7 @@ const ap = new APlayer({
             artist: 'RADWIMPS', //音频艺术家
             url: 'http://www.ytmp3.cn/down/36286.mp3', //音频外链
             cover: 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=105940228a8ba61ecbe3c07d205dfc6f/29381f30e924b899086d3fd066061d950b7bf681.jpg', //音频封面
-            lrc: 'lrc1.lrc', //音频歌词，配合上面的lrcType使用
+            lrc: 'lrc.lrc', //音频歌词，配合上面的lrcType使用
             theme: '#ebd0c2' //切换到此音频时的主题色，比上面的 theme 优先级高
         }
     ]
